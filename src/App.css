@@ -1,0 +1,377 @@
+/* src/app.css */
+
+:root {
+  --font: Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Dark (default) */
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --surface-2: #0f172a;
+
+  --text: #f1f5f9;
+  --muted: #cbd5e1;
+
+  --border: rgba(241, 245, 249, 0.14);
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.22);
+
+  --radius: 18px;
+
+  /* Layout */
+  --container: 1180px;
+  --gutter: 20px;
+  --gap: 18px;
+}
+
+:root[data-theme="light"] {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+
+  --text: #0b1220;
+  --muted: #334155;
+
+  --border: rgba(2, 6, 23, 0.12);
+  --shadow: 0 10px 28px rgba(2, 6, 23, 0.10);
+
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.20);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Center EVERYTHING, including the header */
+.page {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 22px var(--gutter) 56px;
+}
+
+/* ---------------- Topbar ---------------- */
+.topbar {
+  margin-bottom: 16px;
+}
+
+.topbarInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand { min-width: 0; }
+
+.title {
+  margin: 0 0 6px;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 72ch;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Toggle */
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+
+.chip:hover { filter: brightness(1.04); }
+
+.chip:focus {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+/* ---------------- Grid ---------------- */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* Collapse to 1 column sooner (better for laptops + tablets) */
+@media (max-width: 1020px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Stack header nicely on mobile */
+@media (max-width: 720px) {
+  .page { padding: 18px 14px 48px; }
+  .topbarInner { flex-direction: column; align-items: stretch; }
+  .actions { justify-content: flex-start; }
+  .title { font-size: 26px; }
+}
+
+/* ---------------- Cards ---------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 520px) {
+  .card { padding: 16px; border-radius: 16px; }
+}
+
+.cardTitle {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+/* ---------------- Inputs ---------------- */
+.field { margin-bottom: 16px; }
+
+.label {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.value {
+  color: var(--text);
+  font-weight: 900;
+}
+
+.textInput {
+  width: 100%;
+  padding: 12px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  outline: none;
+}
+
+.textInput:focus {
+  border-color: rgba(37, 99, 235, 0.70);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.rangeMeta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.hint {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+.toggleRow { margin: 10px 0; }
+
+.toggle {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---------------- Results ---------------- */
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .resultGrid { grid-template-columns: 1fr; }
+}
+
+.resultBox {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.resultBoxHighlight {
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+.resultLabel {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.resultValue {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.smallMuted {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ---------------- Breakdown ---------------- */
+.breakdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.breakdown li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.breakdown li:last-child { border-bottom: none; }
+
+/* ---------------- Buttons + Footer ---------------- */
+.btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+.btn:hover { filter: brightness(1.05); }
+
+.btn:focus {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+.footer {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footerCenter {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* === Alignment + equal columns fix === */
+
+/* Force equal columns with a fixed gap */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(520px, 1fr));
+  gap: 22px;
+  align-items: start;
+  justify-content: center; /* keeps both columns centered */
+}
+
+/* Make both cards fill the entire grid column */
+.card {
+  width: 100%;
+}
+
+/* Slightly reduce card padding so the layout looks tighter */
+.card {
+  padding: 20px;
+}
+
+/* Responsive: collapse earlier so it looks good on laptops/tablets */
+@media (max-width: 1180px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  .page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .chip {
+    width: fit-content;
+  }
+
+  .resultGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Make top bar match the card width perfectly */
+.topbar {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+}
