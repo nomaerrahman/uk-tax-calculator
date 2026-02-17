@@ -147,3 +147,48 @@ uk-tax-calculator/
 ## 🔒 License
 
 This project is for educational and portfolio use.
+
+---
+
+## 🌐 Deploy to GitHub Pages (no blank page)
+
+This repo is configured to deploy automatically to **GitHub Pages** using a GitHub Actions workflow:
+
+- Workflow file: `.github/workflows/deploy.yml`
+- Output folder published: `dist/`
+
+### 1) Set the correct Vite base path
+
+Open `vite.config.js` and make sure `base` matches your **repository name**:
+
+```js
+export default defineConfig({
+  plugins: [react()],
+  base: "/YOUR-REPO-NAME/",
+});
+```
+
+✅ Example: if your repo is `uk-tax-calculator`, the base must be:
+
+```js
+base: "/uk-tax-calculator/",
+```
+
+If you are deploying to a **username GitHub Pages site** (repo name like `username.github.io`), then set:
+
+```js
+base: "/",
+```
+
+### 2) Enable Pages to deploy from GitHub Actions
+
+In your GitHub repo:
+
+- **Settings → Pages**
+- **Build and deployment → Source: GitHub Actions**
+
+### 3) Push to `main`
+
+Every push to `main` triggers the workflow, builds the app, and deploys `dist/`.
+
+If you still see a blank page, open the browser devtools **Console** and **Network** tab — usually it’s a wrong `base` path (JS bundle 404).
