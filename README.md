@@ -1,17 +1,149 @@
-# React + Vite
+# UK Take-Home Pay Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive UK income tax calculator built using **React + Vite**.
 
-Currently, two official plugins are available:
+This application calculates:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Income Tax (rUK – England, Wales, Northern Ireland)
+- National Insurance (Category A)
+- Take-home pay (annual, monthly, weekly)
+- Pension contribution adjustments
+- UK tax code handling (1257L, BR, D0, D1, NT, K codes)
+- Downloadable PDF tax breakdown report
+- Light / Dark mode
+- Fully responsive layout (desktop, tablet, mobile)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Income slider with Yearly / Monthly / Weekly options
+- Manual income input for precision
+- Tax code interpretation and allowance display
+- Pension contribution adjustment
+- Clean PDF export with formatted breakdown
+- Accessible UI with consistent design system
+- Mobile-friendly responsive layout
+- Dark / Light theme toggle
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# uk-tax-calculator
+---
+
+## 🛠 Tech Stack
+
+- React
+- Vite
+- JavaScript (ES6+)
+- jsPDF (PDF generation)
+- Custom CSS design system
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/nomaerrahman/uk-tax-calculator.git
+cd uk-tax-calculator
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Running the Application (Development Mode)
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+You should see output similar to:
+
+```
+VITE ready
+Local: http://localhost:5173/
+```
+
+Open your browser and visit:
+
+```
+http://localhost:5173/
+```
+
+The app will automatically reload when you edit files.
+
+---
+
+## 🏗 Production Build
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+This will generate a `dist/` folder.
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+---
+
+## 📁 Project Structure
+
+```
+uk-tax-calculator/
+│
+├── src/
+│   ├── App.jsx
+│   ├── app.css
+│   ├── lib/
+│   │   └── ukTax.js
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+└── README.md
+```
+
+---
+
+## 📊 Tax Coverage
+
+- rUK income tax bands
+- Employee NI (Category A)
+- Personal Allowance interpretation
+- BR, D0, D1, NT, 0T, and K tax codes
+- Pension deduction simulation
+
+**Note:** This is a simplified calculator intended for demonstration and portfolio purposes. It does not account for student loans, Scottish tax bands, benefits, or full HMRC edge cases.
+
+---
+
+## 📱 Responsive Design
+
+- Two-column layout on desktop
+- Single-column layout on tablet and mobile
+- Optimized spacing for touch interaction
+- Accessible color contrast
+
+---
+
+## 👤 Author
+
+© 2026 nomaerrahman
+
+---
+
+## 🔒 License
+
+This project is for educational and portfolio use.
