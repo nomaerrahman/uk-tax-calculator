@@ -3,5 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/uk-tax-calculator/", // <-- MUST match your repo name
+  // Relative base makes GitHub Pages deployments work even if the repo name changes.
+  // (Avoids the classic "blank page" caused by incorrect asset paths.)
+  base: "./",
 });

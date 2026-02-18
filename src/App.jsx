@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import { calcTakeHome, parseTaxCode } from "./lib/ukTax";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import "./app.css";
+// NOTE: Case-sensitive filesystems (like GitHub Pages / Linux) require exact casing.
+import "./App.css";
 
 function formatGBP(n, digits = 0) {
   return new Intl.NumberFormat("en-GB", {

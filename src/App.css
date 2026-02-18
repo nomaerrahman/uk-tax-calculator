@@ -50,11 +50,18 @@ body {
   color: var(--text);
 }
 
-/* Center EVERYTHING, including the header */
+/* Full-bleed page (prevents "cut off" layouts on GitHub Pages and small screens) */
 .page {
-  max-width: var(--container);
-  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
   padding: 22px var(--gutter) 56px;
+}
+
+/* Optional content width cap on very large monitors (still feels full-screen) */
+.page > * {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------------- Topbar ---------------- */
